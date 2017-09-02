@@ -9,10 +9,17 @@ namespace OptymalizacjaDwieZmienne
 {
     class Population
     {
-        public List<Individual> ListOfIndividual=new List<Individual>();
+        public List<Individual> ListOfIndividual;
+
+        public Population()
+        {
+            ListOfIndividual = new List<Individual>();
+        }
+
         public Population(int size)
         {
-            for(int i=0;i<size;i++)
+            ListOfIndividual = new List<Individual>();
+            for (int i=0;i<size;i++)
             {
                 Individual individual = new Individual(Configuration.X1, Configuration.X2, Configuration.Y1, Configuration.Y2);
                 ListOfIndividual.Add(individual);

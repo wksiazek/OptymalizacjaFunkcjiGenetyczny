@@ -21,6 +21,7 @@ namespace OptymalizacjaDwieZmienne
             Configuration.Optimization = true; //maksimum
             Configuration.PercentTheBest = 30;
             Configuration.sizeOfTournament = 2;
+            Configuration.NumberGeneration = 100;//liczba iteracji
 
             //Przygotowanie generatora liczb pseudolosowych
             RandomGenerator random = new RandomGenerator();
@@ -35,8 +36,11 @@ namespace OptymalizacjaDwieZmienne
             //Wybor algorytmu selekcji
             ISelection selection = new ModifiedSelectionTournament();
 
+            //Wybor algorytmu krzyżowania
+            double alfa = 0.5;
+            ICrossover crossover = new WholeArithmeticCrossover(alfa);
             //Właściwa pętla algorytmu genetycznego
-            GeneticLoop geneticLoop = new GeneticLoop(null, selection, population,null);
+            GeneticLoop geneticLoop = new GeneticLoop(null, selection, population, crossover, function);
 
             geneticLoop.loop();
         }

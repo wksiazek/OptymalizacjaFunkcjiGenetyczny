@@ -11,7 +11,13 @@ namespace OptymalizacjaDwieZmienne
     //pierwszych k genów bez zmian, reszta tak jak wholearithmetic
     class SimpleArithmeticCrossover : ICrossover
     {
-        public List<Individual> Crossover(List<Individual> listOfIndividual)
+        private double alfa;
+        public SimpleArithmeticCrossover(double alfa)
+        {
+            this.alfa = alfa;
+        }
+
+        public Population Crossover(List<Individual> listOfIndividual)
         {
             throw new NotImplementedException();
         }

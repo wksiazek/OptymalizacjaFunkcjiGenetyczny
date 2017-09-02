@@ -1,4 +1,5 @@
-﻿using OptymalizacjaDwieZmienne.Mutation;
+﻿using OptymalizacjaDwieZmienne.FitnessFunction;
+using OptymalizacjaDwieZmienne.Mutation;
 using OptymalizacjaDwieZmienne.Selection;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace OptymalizacjaDwieZmienne
         ISelection selection;
         Population population;
         ICrossover crossover;
+        IFitnessFunction function;
 
         List<Individual> listForCrossover;
         public GeneticLoop()
@@ -25,19 +27,23 @@ namespace OptymalizacjaDwieZmienne
             crossover = null;
         }
 
-        public GeneticLoop(IMutation mutation, ISelection selection, Population population, ICrossover crossover)
+        public GeneticLoop(IMutation mutation, ISelection selection, Population population, ICrossover crossover,IFitnessFunction function)
         {
             this.mutation = mutation;
             this.selection = selection;
             this.population = population;
             this.crossover = crossover;
+            this.function = function;
         }
 
         public void loop()
         {
-            for (int i = 0; i < Configuration.Size; i++)
+            for (int i = 0; i < Configuration.NumberGeneration; i++)
             {
                 listForCrossover = selection.Select(population);
+                population = crossover.Crossover(listForCrossover);
+                population.ComputeFitness(function,Configuration.Optimization);
+                Individual theBest = population.getTheBest();
             }
         }
     }

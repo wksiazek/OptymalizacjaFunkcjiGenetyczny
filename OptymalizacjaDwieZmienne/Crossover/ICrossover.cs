@@ -8,6 +8,6 @@ namespace OptymalizacjaDwieZmienne
 {
     interface ICrossover
     {
-        List<Individual> Crossover(List<Individual>listOfIndividual);
+       Population Crossover(List<Individual>listOfIndividual);
     }
 }

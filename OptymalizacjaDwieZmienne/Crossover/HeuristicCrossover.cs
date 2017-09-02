@@ -8,7 +8,7 @@ namespace OptymalizacjaDwieZmienne.Crossover
 {
     class HeuristicCrossover : ICrossover
     {
-        public List<Individual> Crossover(List<Individual> listOfIndividual)
+        public Population Crossover(List<Individual> listOfIndividual)
         {
             throw new NotImplementedException();
         }
