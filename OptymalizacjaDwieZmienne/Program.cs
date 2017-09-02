@@ -25,7 +25,7 @@ namespace OptymalizacjaDwieZmienne
             Configuration.sizeOfTournament = 2;
             Configuration.NumberGeneration = 6000;//liczba iteracji
             Configuration.ProbabilityCrossover = 80;
-            Configuration.ProbabilityMutation = 2;
+            Configuration.ProbabilityMutation = 3;
 
             //Przygotowanie generatora liczb pseudolosowych
             RandomGenerator random = new RandomGenerator();
@@ -44,7 +44,7 @@ namespace OptymalizacjaDwieZmienne
             IMutation mutation=new UniformMutation(); 
 
             //Wybor algorytmu krzyżowania
-            ICrossover crossover = new HeuristicCrossover();
+            ICrossover crossover = new WholeArithmeticCrossover();
             //Właściwa pętla algorytmu genetycznego
             GeneticLoop geneticLoop = new GeneticLoop(mutation, selection, population, crossover, function);
 

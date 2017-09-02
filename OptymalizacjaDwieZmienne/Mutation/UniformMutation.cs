@@ -8,10 +8,10 @@ namespace OptymalizacjaDwieZmienne.Mutation
 {
     //gen zmienia wartość na jedną z przedziału- równomierna
     class UniformMutation : IMutation
-    {
-        int numberGen;
+    {      
         public void Mutate(Population population)
         {
+            int numberGen;
             int randomNumber;
             for(int i=0;i<Configuration.Size;i++)
             {
