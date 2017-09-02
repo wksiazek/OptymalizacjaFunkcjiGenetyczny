@@ -8,6 +8,7 @@ namespace OptymalizacjaDwieZmienne.FitnessFunction
 {
     interface IFitnessFunction
     {
+        string Name { get; set; }
         double ComputeMaximum(double x, double y);
         double ComputeMinimum(double x, double y);
     }

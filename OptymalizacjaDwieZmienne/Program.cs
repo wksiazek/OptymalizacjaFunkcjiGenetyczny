@@ -1,4 +1,5 @@
 ﻿using OptymalizacjaDwieZmienne.Crossover;
+using OptymalizacjaDwieZmienne.Database;
 using OptymalizacjaDwieZmienne.FitnessFunction;
 using OptymalizacjaDwieZmienne.Mutation;
 using OptymalizacjaDwieZmienne.Selection;
@@ -45,6 +46,7 @@ namespace OptymalizacjaDwieZmienne
 
             //Wybor algorytmu krzyżowania
             ICrossover crossover = new WholeArithmeticCrossover();
+
             //Właściwa pętla algorytmu genetycznego
             GeneticLoop geneticLoop = new GeneticLoop(mutation, selection, population, crossover, function);
 

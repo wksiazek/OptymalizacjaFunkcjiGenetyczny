@@ -1,4 +1,5 @@
-﻿using OptymalizacjaDwieZmienne.FitnessFunction;
+﻿using OptymalizacjaDwieZmienne.Database;
+using OptymalizacjaDwieZmienne.FitnessFunction;
 using OptymalizacjaDwieZmienne.Mutation;
 using OptymalizacjaDwieZmienne.Selection;
 using System;
@@ -41,7 +42,20 @@ namespace OptymalizacjaDwieZmienne
 
         public void loop()
         {
-            Individual theBest;
+            IDatabaseConfiguration sqlConfiguration = null;
+            //Połączenie z bazą danych SQlite
+            try
+            {
+                sqlConfiguration = new SqliteConfiguration();
+                sqlConfiguration.connect();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            //Petla genetyczna
+            Individual theBest=null;
             computingTime.StartTime = DateTime.Now;
             for (int i = 0; i < Configuration.NumberGeneration; i++)
             {
@@ -52,6 +66,17 @@ namespace OptymalizacjaDwieZmienne
                 theBest = population.getTheBest();
             }
             computingTime.EndTime = DateTime.Now;
+
+            //Zapis najlepszego osobnika do bazy
+            try
+            {
+                sqlConfiguration.safe(function.Name, theBest.X, theBest.Y, theBest.Fitness);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
             Console.WriteLine(computingTime.Compute());
             Console.ReadKey();
         }

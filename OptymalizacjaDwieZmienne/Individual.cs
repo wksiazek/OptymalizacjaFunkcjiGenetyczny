@@ -7,9 +7,9 @@ namespace OptymalizacjaDwieZmienne
 {
     class Individual
     {
-        public double X;
-        public double Y;
-        public double Fitness;
+        public double X { get; set; }
+        public double Y { get; set; }
+        public double Fitness { get; set; }
         public Individual()
         {
             X = 0;

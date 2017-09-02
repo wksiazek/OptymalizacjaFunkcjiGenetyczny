@@ -9,7 +9,7 @@ namespace OptymalizacjaDwieZmienne
     interface IDatabaseConfiguration
     {
         void connect();
-        void safe();
+        void safe(string nameFunction, double x, double y, double fitness);
         void read();
     }
 }
