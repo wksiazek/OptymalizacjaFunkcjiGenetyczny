@@ -28,9 +28,9 @@ namespace OptymalizacjaDwieZmienne
                 Individual ind1 = listOfIndividual.ElementAt(RandomGenerator.random.Next(0, listOfIndividual.Count));
                 Individual ind2 = listOfIndividual.ElementAt(RandomGenerator.random.Next(0, listOfIndividual.Count));
                 randomNumber = RandomGenerator.random.Next(0, 100);
-                if (randomNumber > Configuration.ProbabilityCrossover)
+                if (randomNumber < Configuration.ProbabilityCrossover)
                 {
-                    randomNumber = RandomGenerator.random.Next(0, 1);
+                    randomNumber = RandomGenerator.random.Next(0, 2);
                     if (randomNumber==0)
                     {
                         x1 = alfa * ind1.X + (1 - alfa) * ind2.X;
@@ -41,7 +41,7 @@ namespace OptymalizacjaDwieZmienne
                     else
                     {
                         x1 = alfa * ind2.X + (1 - alfa) * ind1.X;
-                        y1 = alfa * ind2.Y + (1 - alfa) * ind1.X;
+                        y1 = alfa * ind2.Y + (1 - alfa) * ind1.Y;
                         Individual newInd1 = new Individual(x1, y1);
                         newIndividuals.Add(newInd1);
                     }                 

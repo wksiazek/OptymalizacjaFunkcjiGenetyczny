@@ -26,10 +26,10 @@ namespace OptymalizacjaDwieZmienne.Crossover
                 Individual ind1 = listOfIndividual.ElementAt(RandomGenerator.random.Next(0, listOfIndividual.Count));
                 Individual ind2 = listOfIndividual.ElementAt(RandomGenerator.random.Next(0, listOfIndividual.Count));
                 randomNumber = RandomGenerator.random.Next(0, 100);
-                if (randomNumber > Configuration.ProbabilityCrossover)
+                if (randomNumber < Configuration.ProbabilityCrossover)
                 {
-                    if (ind1.Fitness >= ind2.Fitness)
-                    {
+                    //if (ind1.Fitness >= ind2.Fitness)
+                    //{
                         x1 = r * (ind2.X - ind1.X) + ind2.X;
                         y1 = r * (ind2.Y - ind1.Y) + ind2.Y;
                         if (x1 > Configuration.X1 && x1 < Configuration.X2 && y1 > Configuration.Y1 && y1 < Configuration.Y2)
@@ -37,7 +37,7 @@ namespace OptymalizacjaDwieZmienne.Crossover
                             Individual newIndividual = new Individual(x1, y1);
                             newIndividuals.Add(newIndividual);
                         }
-                    }
+                    //}
                 }
             }
             newPopulation.ListOfIndividual = newIndividuals;

@@ -8,6 +8,6 @@ namespace OptymalizacjaDwieZmienne.Mutation
 {
     interface IMutation
     {
-        void Mutate(Individual individual);
+        void Mutate(Population population);
     }
 }

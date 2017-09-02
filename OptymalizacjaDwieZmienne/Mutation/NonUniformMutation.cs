@@ -9,7 +9,7 @@ namespace OptymalizacjaDwieZmienne.Mutation
     //gen zmienia się zależnie od pokolenia- nierównomierna
     class NonUniformMutation : IMutation
     {
-        public void Mutate(Individual individual)
+        public void Mutate(Population population)
         {
             throw new NotImplementedException();
         }
