@@ -19,5 +19,6 @@ namespace OptymalizacjaDwieZmienne
         public static int ProbabilityCrossover;
         public static int PercentElite;
         public static int PercentTheBest;
+        public static int sizeOfTournament;
     }
 }

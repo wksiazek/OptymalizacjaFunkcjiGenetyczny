@@ -70,7 +70,8 @@
     <Compile Include="Selection\SelectionRank.cs" />
     <Compile Include="Selection\SelectionTheBestForMaximum.cs" />
     <Compile Include="Selection\SelectionTheBestForMinimum.cs" />
-    <Compile Include="Selection\SelectionTournament.cs" />
+    <Compile Include="Selection\SelectionTournamentForMaximum.cs" />
+    <Compile Include="Selection\SelectionTournamentForMinimum.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
