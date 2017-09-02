@@ -62,9 +62,11 @@
     <Compile Include="Crossover\SimpleArithmeticCrossover.cs" />
     <Compile Include="Crossover\SingleArithmeticCrossover.cs" />
     <Compile Include="Crossover\WholeArithmeticCrossover.cs" />
+    <Compile Include="RandomGenerator.cs" />
     <Compile Include="Selection\ISelection.cs" />
     <Compile Include="Selection\ModifiedSelectionTournament.cs" />
-    <Compile Include="Selection\RouletteWheelSelection.cs" />
+    <Compile Include="Selection\RouletteWheelSelectionForMaximum.cs" />
+    <Compile Include="Selection\RouletteWheelSelectionForMinimum.cs" />
     <Compile Include="Selection\SelectionRank.cs" />
     <Compile Include="Selection\SelectionTheBest.cs" />
     <Compile Include="Selection\SelectionTournament.cs" />

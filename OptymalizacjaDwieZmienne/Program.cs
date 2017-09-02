@@ -1,4 +1,6 @@
-﻿using System;
+﻿using OptymalizacjaDwieZmienne.FitnessFunction;
+using OptymalizacjaDwieZmienne.Selection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,17 +13,30 @@ namespace OptymalizacjaDwieZmienne
         static void Main(string[] args)
         {
             //Przygotowanie konfiguracji
-            Configuration.X1 = 1.0;
-            Configuration.X2 = 1.0;
-            Configuration.Y1 = 1.0;
-            Configuration.Y2= 1.0;
+            Configuration.X1 = -3.0;
+            Configuration.X2 = 3.0;
+            Configuration.Y1 = -3.0;
+            Configuration.Y2= 3.0;
             Configuration.Size = 100;
+            Configuration.Optimization = true; //maksimum
+
+            //Przygotowanie generatora liczb pseudolosowych
+            RandomGenerator random = new RandomGenerator();
+
+            //Wybór funkcji do testowania
+            IFitnessFunction function = new Function2();
 
             //Wygenerowanie populacji
             Population population = new Population(Configuration.Size);
+            population.ComputeFitness(function, Configuration.Optimization);
+
+            //Wybor algorytmu selekcji
+            ISelection selection = new RouletteWheelSelectionForMaximum();
 
             //Właściwa pętla algorytmu genetycznego
-            GeneticLoop loop = new GeneticLoop(null, null,population,null);         
+            GeneticLoop geneticLoop = new GeneticLoop(null, selection, population,null);
+
+            geneticLoop.loop();
         }
     }
 }

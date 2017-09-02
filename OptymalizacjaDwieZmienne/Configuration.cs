@@ -8,6 +8,7 @@ namespace OptymalizacjaDwieZmienne
 {
     class Configuration
     {
+        public static bool Optimization; //true maksimum, false minimum
         public static int Size;
         public static double X1;
         public static double X2;
@@ -16,6 +17,6 @@ namespace OptymalizacjaDwieZmienne
         public static int NumberGeneration;
         public static int ProbabilityMutation;
         public static int ProbabilityCrossover;
-        public static double percentElite;
+        public static double PercentElite;
     }
 }

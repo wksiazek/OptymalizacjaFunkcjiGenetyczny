@@ -8,6 +8,6 @@ namespace OptymalizacjaDwieZmienne.Selection
 {
     interface ISelection
     {
-
+        List<Individual> Select(Population population);
     }
 }

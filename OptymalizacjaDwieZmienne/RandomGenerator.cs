@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OptymalizacjaDwieZmienne.Selection
+namespace OptymalizacjaDwieZmienne
 {
-    class RouletteWheelSelection
+    class RandomGenerator
     {
-
+        public static Random random = new Random();
     }
 }

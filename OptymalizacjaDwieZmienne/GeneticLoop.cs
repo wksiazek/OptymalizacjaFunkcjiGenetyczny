@@ -10,13 +10,15 @@ namespace OptymalizacjaDwieZmienne
 {
     class GeneticLoop
     {
-        IMutation mutation;
+        public IMutation mutation;
         ISelection selection;
         Population population;
         ICrossover crossover;
 
+        List<Individual> listForCrossover;
         public GeneticLoop()
         {
+            listForCrossover = new List<Individual>();
             mutation = null;
             selection = null;
             population = null;
@@ -31,12 +33,13 @@ namespace OptymalizacjaDwieZmienne
             this.crossover = crossover;
         }
 
-        void loop()
+        public void loop()
         {
             for (int i = 0; i < Configuration.Size; i++)
             {
-
+                listForCrossover = selection.Select(population);
             }
+            int a = 1;
         }
     }
 }
