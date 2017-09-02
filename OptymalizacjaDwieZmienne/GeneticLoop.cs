@@ -38,13 +38,15 @@ namespace OptymalizacjaDwieZmienne
 
         public void loop()
         {
+            Individual theBest;
             for (int i = 0; i < Configuration.NumberGeneration; i++)
             {
                 listForCrossover = selection.Select(population);
                 population = crossover.Crossover(listForCrossover);
                 population.ComputeFitness(function,Configuration.Optimization);
-                Individual theBest = population.getTheBest();
+                theBest = population.getTheBest();
             }
+            double a = 5;
         }
     }
 }

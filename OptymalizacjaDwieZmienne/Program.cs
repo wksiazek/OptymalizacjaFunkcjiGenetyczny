@@ -21,7 +21,7 @@ namespace OptymalizacjaDwieZmienne
             Configuration.Optimization = true; //maksimum
             Configuration.PercentTheBest = 30;
             Configuration.sizeOfTournament = 2;
-            Configuration.NumberGeneration = 100;//liczba iteracji
+            Configuration.NumberGeneration = 1000;//liczba iteracji
 
             //Przygotowanie generatora liczb pseudolosowych
             RandomGenerator random = new RandomGenerator();
@@ -34,7 +34,7 @@ namespace OptymalizacjaDwieZmienne
             population.ComputeFitness(function, Configuration.Optimization);
 
             //Wybor algorytmu selekcji
-            ISelection selection = new ModifiedSelectionTournament();
+            ISelection selection = new SelectionTournament();
 
             //Wybor algorytmu krzyżowania
             double alfa = 0.5;
