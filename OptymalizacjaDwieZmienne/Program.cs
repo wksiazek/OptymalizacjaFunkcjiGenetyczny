@@ -33,7 +33,7 @@ namespace OptymalizacjaDwieZmienne
             population.ComputeFitness(function, Configuration.Optimization);
 
             //Wybor algorytmu selekcji
-            ISelection selection = new SelectionRankForMaximum();
+            ISelection selection = new ModifiedSelectionTournament();
 
             //Właściwa pętla algorytmu genetycznego
             GeneticLoop geneticLoop = new GeneticLoop(null, selection, population,null);

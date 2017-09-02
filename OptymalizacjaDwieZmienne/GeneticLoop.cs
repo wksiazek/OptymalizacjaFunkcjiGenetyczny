@@ -39,7 +39,6 @@ namespace OptymalizacjaDwieZmienne
             {
                 listForCrossover = selection.Select(population);
             }
-            int a = 1;
         }
     }
 }

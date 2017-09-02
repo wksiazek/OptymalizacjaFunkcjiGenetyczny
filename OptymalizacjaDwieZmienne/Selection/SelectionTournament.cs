@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace OptymalizacjaDwieZmienne.Selection
 {
     //dzielimy populację na grupy składające się z kilku osobników, zazwyczaj 2 lub 3
-    class SelectionTournamentForMaximum : ISelection
+    class SelectionTournament : ISelection
     {
         public List<Individual> Select(Population population)
         {
