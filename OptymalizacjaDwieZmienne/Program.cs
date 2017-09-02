@@ -44,8 +44,7 @@ namespace OptymalizacjaDwieZmienne
             IMutation mutation=new UniformMutation(); 
 
             //Wybor algorytmu krzyżowania
-            double alfa = 0.7;
-            ICrossover crossover = new WholeArithmeticCrossover(alfa);
+            ICrossover crossover = new HeuristicCrossover();
             //Właściwa pętla algorytmu genetycznego
             GeneticLoop geneticLoop = new GeneticLoop(mutation, selection, population, crossover, function);
 

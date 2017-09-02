@@ -11,11 +11,7 @@ namespace OptymalizacjaDwieZmienne
         //alfa*x1+(1-alfa)x2
         //alfa*x2+(1-alfa)x1
         //dla wybranego genu
-        private double alfa;
-        public SingleArithmeticCrossover(double alfa)
-        {
-            this.alfa = alfa;
-        }
+
         public Population Crossover(List<Individual> listOfIndividual)
         {
             int randomNumber;
@@ -25,6 +21,7 @@ namespace OptymalizacjaDwieZmienne
 
             while (newIndividuals.Count != Configuration.Size)
             {
+                double alfa = RandomGenerator.RandomDouble(0, 1);
                 Individual ind1 = listOfIndividual.ElementAt(RandomGenerator.random.Next(0, listOfIndividual.Count));
                 Individual ind2 = listOfIndividual.ElementAt(RandomGenerator.random.Next(0, listOfIndividual.Count));
                 randomNumber = RandomGenerator.random.Next(0, 100);

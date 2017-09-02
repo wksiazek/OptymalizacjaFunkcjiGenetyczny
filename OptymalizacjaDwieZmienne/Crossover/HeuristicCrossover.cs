@@ -9,13 +9,9 @@ namespace OptymalizacjaDwieZmienne.Crossover
     //ch3=r(ch2-ch1)+ch2 , r[0,1] potomek jeden, tylko wtedy gdy f(ch2)<f(ch1)
     class HeuristicCrossover : ICrossover
     {
-        private double r;
-        public HeuristicCrossover(double r)
-        {
-            this.r = r;
-        }
         public Population Crossover(List<Individual> listOfIndividual)
         {
+            double r= RandomGenerator.RandomDouble(0, 1);
             Population newPopulation = new Population();
             List<Individual> newIndividuals = new List<Individual>();
             double x1, y1;

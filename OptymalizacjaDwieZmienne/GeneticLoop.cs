@@ -43,7 +43,7 @@ namespace OptymalizacjaDwieZmienne
             {
                 listForCrossover = selection.Select(population);            
                 population = crossover.Crossover(listForCrossover);
-                //mutation.Mutate(population);
+                mutation.Mutate(population);
                 population.ComputeFitness(function,Configuration.Optimization);
                 theBest = population.getTheBest();
             }
