@@ -10,7 +10,7 @@ namespace OptymalizacjaDwieZmienne
         public double X;
         public double Y;
         public double Fitness;
-
+        Random random = new Random();
         public Individual()
         {
             X = 0;
@@ -26,7 +26,8 @@ namespace OptymalizacjaDwieZmienne
 
         public Individual(double x1, double x2,double y1,double y2)
         {
-           //z przedzialu s
+            X = random.NextDouble()*(x2-x1)+x1;
+            Y = random.NextDouble()*(y2 - y1) + y1;
         }
     }
 }

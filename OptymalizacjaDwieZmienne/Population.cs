@@ -16,5 +16,10 @@ namespace OptymalizacjaDwieZmienne
                 ListOfIndividual.Add(new Individual(Configuration.X1,Configuration.X2,Configuration.Y1,Configuration.Y2));
             }
         }
+
+        public Individual getTheBest()
+        {
+            return ListOfIndividual.OrderBy(a => a.Fitness).FirstOrDefault();
+        }
     }
 }
