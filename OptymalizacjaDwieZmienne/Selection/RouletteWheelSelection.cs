@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OptymalizacjaDwieZmienne.Selection
 {
-    class RouletteWheelSelectionForMaximum : ISelection
+    class RouletteWheelSelection : ISelection
     {
         public List<Individual> Select(Population population)
         {
@@ -19,7 +19,15 @@ namespace OptymalizacjaDwieZmienne.Selection
             int countIndividual;
             foreach(Individual x in population.ListOfIndividual)
             {
-                countIndividual = Convert.ToInt32(x.Fitness / sumOfFitnessFunction* Configuration.Size);
+                if (Configuration.Optimization)
+                {
+                    countIndividual = Convert.ToInt32(x.Fitness / sumOfFitnessFunction * Configuration.Size);
+                }
+                else
+                {
+                    double theWorstIndividual = population.getTheWorst().Fitness;
+                    countIndividual = Convert.ToInt32(theWorstIndividual - (x.Fitness + 1) / (sumOfFitnessFunction + 1) * Configuration.Size);
+                }
                 for(int i=0;i< countIndividual;i++)
                 {
                     rouletteWheel.Add(x);

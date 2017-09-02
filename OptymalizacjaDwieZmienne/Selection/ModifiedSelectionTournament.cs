@@ -50,7 +50,6 @@ namespace OptymalizacjaDwieZmienne.Selection
                 }
             }
             return listForCrossover;
-
         }
     }
 }
