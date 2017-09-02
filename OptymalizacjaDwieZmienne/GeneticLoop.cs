@@ -16,10 +16,12 @@ namespace OptymalizacjaDwieZmienne
         Population population;
         ICrossover crossover;
         IFitnessFunction function;
+        ComputingTime computingTime;
 
         List<Individual> listForCrossover;
         public GeneticLoop()
         {
+            computingTime = new ComputingTime();
             listForCrossover = new List<Individual>();
             mutation = null;
             selection = null;
@@ -29,6 +31,7 @@ namespace OptymalizacjaDwieZmienne
 
         public GeneticLoop(IMutation mutation, ISelection selection, Population population, ICrossover crossover,IFitnessFunction function)
         {
+            computingTime = new ComputingTime();
             this.mutation = mutation;
             this.selection = selection;
             this.population = population;
@@ -39,6 +42,7 @@ namespace OptymalizacjaDwieZmienne
         public void loop()
         {
             Individual theBest;
+            computingTime.StartTime = DateTime.Now;
             for (int i = 0; i < Configuration.NumberGeneration; i++)
             {
                 listForCrossover = selection.Select(population);            
@@ -47,7 +51,9 @@ namespace OptymalizacjaDwieZmienne
                 population.ComputeFitness(function,Configuration.Optimization);
                 theBest = population.getTheBest();
             }
-            double a = 5;
+            computingTime.EndTime = DateTime.Now;
+            Console.WriteLine(computingTime.Compute());
+            Console.ReadKey();
         }
     }
 }
