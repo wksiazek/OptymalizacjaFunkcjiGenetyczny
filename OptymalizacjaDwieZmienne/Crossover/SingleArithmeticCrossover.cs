@@ -18,7 +18,7 @@ namespace OptymalizacjaDwieZmienne
         }
         public Population Crossover(List<Individual> listOfIndividual)
         {
-            int randomNumer;
+            int randomNumber;
             double x1, y1;
             Population newPopulation = new Population();
             List<Individual> newIndividuals = new List<Individual>();
@@ -27,11 +27,11 @@ namespace OptymalizacjaDwieZmienne
             {
                 Individual ind1 = listOfIndividual.ElementAt(RandomGenerator.random.Next(0, listOfIndividual.Count));
                 Individual ind2 = listOfIndividual.ElementAt(RandomGenerator.random.Next(0, listOfIndividual.Count));
-                randomNumer = RandomGenerator.random.Next(0, 100);
-                if (randomNumer > Configuration.ProbabilityCrossover)
+                randomNumber = RandomGenerator.random.Next(0, 100);
+                if (randomNumber > Configuration.ProbabilityCrossover)
                 {
-                    randomNumer = RandomGenerator.random.Next(0, 1);
-                    if (randomNumer==0)
+                    randomNumber = RandomGenerator.random.Next(0, 1);
+                    if (randomNumber==0)
                     {
                         x1 = alfa * ind1.X + (1 - alfa) * ind2.X;
                         y1 = alfa * ind1.Y + (1 - alfa) * ind2.Y;

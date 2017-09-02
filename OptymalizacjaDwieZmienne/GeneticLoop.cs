@@ -41,7 +41,8 @@ namespace OptymalizacjaDwieZmienne
             Individual theBest;
             for (int i = 0; i < Configuration.NumberGeneration; i++)
             {
-                listForCrossover = selection.Select(population);
+                var aa = population.ListOfIndividual.Where(b => b.X > 3).ToList();
+                listForCrossover = selection.Select(population);            
                 population = crossover.Crossover(listForCrossover);
                 population.ComputeFitness(function,Configuration.Optimization);
                 theBest = population.getTheBest();

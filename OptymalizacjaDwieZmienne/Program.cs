@@ -1,4 +1,5 @@
-﻿using OptymalizacjaDwieZmienne.FitnessFunction;
+﻿using OptymalizacjaDwieZmienne.Crossover;
+using OptymalizacjaDwieZmienne.FitnessFunction;
 using OptymalizacjaDwieZmienne.Selection;
 using System;
 using System.Collections.Generic;
@@ -17,11 +18,12 @@ namespace OptymalizacjaDwieZmienne
             Configuration.X2 = 3.0;
             Configuration.Y1 = -3.0;
             Configuration.Y2= 3.0;
-            Configuration.Size = 100;
+            Configuration.Size = 60;
             Configuration.Optimization = true; //maksimum
             Configuration.PercentTheBest = 30;
             Configuration.sizeOfTournament = 2;
-            Configuration.NumberGeneration = 1000;//liczba iteracji
+            Configuration.NumberGeneration = 600;//liczba iteracji
+            Configuration.ProbabilityCrossover = 75;
 
             //Przygotowanie generatora liczb pseudolosowych
             RandomGenerator random = new RandomGenerator();
@@ -37,8 +39,8 @@ namespace OptymalizacjaDwieZmienne
             ISelection selection = new SelectionTournament();
 
             //Wybor algorytmu krzyżowania
-            double alfa = 0.5;
-            ICrossover crossover = new WholeArithmeticCrossover(alfa);
+            double alfa = 0.3;
+            ICrossover crossover = new HeuristicCrossover(alfa);
             //Właściwa pętla algorytmu genetycznego
             GeneticLoop geneticLoop = new GeneticLoop(null, selection, population, crossover, function);
 
