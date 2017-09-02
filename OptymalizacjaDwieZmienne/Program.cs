@@ -19,7 +19,7 @@ namespace OptymalizacjaDwieZmienne
             Configuration.Y2= 3.0;
             Configuration.Size = 100;
             Configuration.Optimization = true; //maksimum
-
+            Configuration.PercentTheBest = 30;
             //Przygotowanie generatora liczb pseudolosowych
             RandomGenerator random = new RandomGenerator();
 
@@ -31,7 +31,7 @@ namespace OptymalizacjaDwieZmienne
             population.ComputeFitness(function, Configuration.Optimization);
 
             //Wybor algorytmu selekcji
-            ISelection selection = new RouletteWheelSelectionForMaximum();
+            ISelection selection = new SelectionTheBestForMaximum();
 
             //Właściwa pętla algorytmu genetycznego
             GeneticLoop geneticLoop = new GeneticLoop(null, selection, population,null);

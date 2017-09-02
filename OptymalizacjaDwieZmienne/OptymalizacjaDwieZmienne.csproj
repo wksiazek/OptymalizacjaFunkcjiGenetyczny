@@ -68,7 +68,8 @@
     <Compile Include="Selection\RouletteWheelSelectionForMaximum.cs" />
     <Compile Include="Selection\RouletteWheelSelectionForMinimum.cs" />
     <Compile Include="Selection\SelectionRank.cs" />
-    <Compile Include="Selection\SelectionTheBest.cs" />
+    <Compile Include="Selection\SelectionTheBestForMaximum.cs" />
+    <Compile Include="Selection\SelectionTheBestForMinimum.cs" />
     <Compile Include="Selection\SelectionTournament.cs" />
   </ItemGroup>
   <ItemGroup>

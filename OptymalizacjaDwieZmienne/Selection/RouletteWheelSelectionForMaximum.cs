@@ -15,7 +15,6 @@ namespace OptymalizacjaDwieZmienne.Selection
 
             double sumOfFitnessFunction = population.ListOfIndividual.Sum(a => a.Fitness);
 
-
             //Przygotowanie koła ruletki
             int countIndividual;
             foreach(Individual x in population.ListOfIndividual)

@@ -17,6 +17,7 @@ namespace OptymalizacjaDwieZmienne
         public static int NumberGeneration;
         public static int ProbabilityMutation;
         public static int ProbabilityCrossover;
-        public static double PercentElite;
+        public static int PercentElite;
+        public static int PercentTheBest;
     }
 }

@@ -19,11 +19,11 @@ namespace OptymalizacjaDwieZmienne.Selection
             int countIndividual;
             foreach (Individual x in population.ListOfIndividual)
             {
-                    countIndividual = Convert.ToInt32(theWorstIndividual - (x.Fitness + 1) / (sumOfFitnessFunction + 1) * Configuration.Size);
-                    for (int i = 0; i < countIndividual; i++)
-                    {
-                        rouletteWheel.Add(x);
-                    }
+                countIndividual = Convert.ToInt32(theWorstIndividual - (x.Fitness + 1) / (sumOfFitnessFunction + 1) * Configuration.Size);
+                for (int i = 0; i < countIndividual; i++)
+                {
+                    rouletteWheel.Add(x);
+                }
             }
 
             //Przygotowanie listy osobników do krzyżowania
